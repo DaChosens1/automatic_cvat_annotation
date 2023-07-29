@@ -29,5 +29,8 @@ sudo ln -sf $(pwd)/nuctl-1.8.14-<system>-amd64 /usr/local/bin/nuctl
 
 
 ## Resources
-- https://opencv.github.io/`cvat`/docs/manual/advanced/serverless-tutorial/
-- https://opencv.github.io/`cvat`/docs/administration/advanced/installation_automatic_annotation/
+- https://opencv.github.io/cvat/docs/manual/advanced/serverless-tutorial/
+- https://opencv.github.io/cvat/docs/administration/advanced/installation_automatic_annotation/
+- https://opencv.github.io/cvat/docs/manual/advanced/ai-tools/
+- https://opencv.github.io/cvat/docs/manual/advanced/automatic-annotation/
+- https://github.com/kurkurzz/custom-yolov8-auto-annotation-cvat-blueprint
