@@ -1,9 +1,12 @@
 metadata:
-  name: custom-model-yolov8
+  # you can change this name, where it will show up in the function name
+  name: custom-model-yolov8 
   namespace: cvat
   annotations:
-    name: custom-model-yolov8
-    type: detector
+    # you can change this too, not sure what it affects specifically, best to change to match metadata/name
+    name: custom-model-yolov8 
+    # you can change this to change the type of function it will have: detector or tracker
+    type: detector 
     framework: pytorch
     # change this accordingly to your model output/classes
     spec: |
@@ -12,14 +15,17 @@ metadata:
         {"id": 1, "name": "dhd_center_octagon"}
       ]
 spec:
-  description: custom-model-yolov8
+  # you can change this too, not sure what it affects specifically, best to change to match metadata/name
+  description: custom-model-yolov8 
   runtime: 'python:3.9'
   handler: main:handler
   eventTimeout: 30s
 
   build:
-    image: custom-model-yolov8
-    baseImage: ubuntu:22.04
+    # you can change this too, not sure what it affects specifically, best to change to match metadata/name
+    image: custom-model-yolov8 
+    # this is fine regardless because it is inside of docker virtual machine built off of parent image so ignores your system
+    baseImage: ubuntu:22.04 
 
     directives:
       preCopy:
@@ -50,5 +56,6 @@ spec:
     attributes:
       restartPolicy:
         name: always
-        maximumRetryCount: 3
+        # Malleable: number of tries
+        maximumRetryCount: 10
       mountMode: volume
