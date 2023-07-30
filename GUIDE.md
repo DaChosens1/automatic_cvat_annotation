@@ -27,6 +27,20 @@ sudo chmod +x nuctl-1.8.14-<system>-amd64
 sudo ln -sf $(pwd)/nuctl-1.8.14-<system>-amd64 /usr/local/bin/nuctl
 ```
 
+Then, in the path `/cvat/serverless`, git clone this repo
+```
+git clone https://github.com/DaChosens1/automatic_cvat_annotation.git
+```
+
+Edit `custom-yolov8-origin` folder files, `function.yaml` and the model pathway in `main.py` based on the comments. Refer to `custom-yolov8` folder as an example using the chevron model named `chevron.pt`.
+
+To deploy a function for cvat to use, we can use the serverless/deploy_cpu.sh for linux, but for all users we will use nuctl dirctly. You can view your deployed functions by running `nuctl get functions` or going to the website `localhost:8070`, the hosted nuclio homepage
+```
+nuctl create project cvat
+nuctl deploy --project-name cvat --path "./serverless/custom-yolov8" --platform local
+```
+
+The model setup should be good to go! Inside of cvat, on the 3 dots on the right of a task, there should be an option for `automatic annotation`, the models page should list hosted models, 
 
 ## Resources
 - https://opencv.github.io/cvat/docs/manual/advanced/serverless-tutorial/
