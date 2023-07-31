@@ -39,7 +39,7 @@ Edit `custom-yolov8-origin` folder files, `function.yaml` and the model pathway 
 To deploy a function for cvat to use, we can use the serverless/deploy_cpu.sh for linux, but for all users we will use nuctl dirctly. You can view your deployed functions by running `nuctl get functions` or going to the website `localhost:8070`, the hosted nuclio homepage
 ```
 nuctl create project cvat
-nuctl deploy --project-name cvat --path "./serverless/custom-yolov8" --platform local
+nuctl deploy --project-name cvat --path "./serverless/<custom_directory_name>/<desired_subdir_model_setup>" --platform local
 ```
 
 The model setup should be good to go! 
