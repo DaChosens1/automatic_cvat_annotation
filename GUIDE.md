@@ -1,4 +1,6 @@
 ## Guide to setting up Automatic Annotation
+Connected Repo: [https://github.com/DaChosens1/automatic_cvat_annotation.git](https://github.com/DaChosens1/automatic_cvat_annotation.git)
+
 Make sure you are at root directory, where you have already cloned `cvat`! This should work for both Mac and Linux. If you have Windows, you may need to do a bit of digging in the official docs and forums D:
 
 - First you need to start up `cvat` in docker in serverless mode
@@ -27,7 +29,7 @@ sudo chmod +x nuctl-1.8.14-<system>-amd64
 sudo ln -sf $(pwd)/nuctl-1.8.14-<system>-amd64 /usr/local/bin/nuctl
 ```
 
-Then, in the path `/cvat/serverless`, git clone this repo
+Then, in the path `/cvat/serverless`, git clone [this repo](https://github.com/DaChosens1/automatic_cvat_annotation.git)
 ```
 git clone https://github.com/DaChosens1/automatic_cvat_annotation.git
 ```
@@ -40,7 +42,12 @@ nuctl create project cvat
 nuctl deploy --project-name cvat --path "./serverless/custom-yolov8" --platform local
 ```
 
-The model setup should be good to go! Inside of cvat, on the 3 dots on the right of a task, there should be an option for `automatic annotation`, the models page should list hosted models, 
+The model setup should be good to go! 
+- Inside of cvat, on the 3 dots on the right of a task, there should be an option for `automatic annotation` to use a detector model on all frames
+- the models page should list hosted models
+- inside of a job, under AI Tools -> Detector should list detection type models; -> Tracker should list tracker type models. Running detection should run the model on 1 frame, while tracker will run the model when you switch to the next frame.
+
+If you have issues, contact Gregory Li, look at [Common Issues](https://github.com/DaChosens1/automatic_cvat_annotation/blob/DaChosens1-patch-1/COMMON_ISSUES.md), or look at resources.
 
 ## Resources
 - https://opencv.github.io/cvat/docs/manual/advanced/serverless-tutorial/
